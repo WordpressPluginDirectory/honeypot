@@ -59,7 +59,8 @@ function wpa_add_honeypot_field(){
 	jQuery('form.fb_form').append(wpa_hidden_field); // Divi Form builder - Divi Engine           
 	jQuery('form.elementor-form').append(wpa_hidden_field); // FOR Elementor
 	jQuery('form.form-contribution').append(wpa_hidden_field); //WooCommerce Reviews Pro
-	jQuery('form.cart').append(wpa_hidden_field);	
+	jQuery('form.cart').append(wpa_hidden_field);
+	jQuery('form#learn-press-checkout-form').append(wpa_hidden_field);// Learn Press Checkout Form
 	
 	// FOR FLUENT FORMS
 	jQuery('form.frm-fluent-form').append(wpa_hidden_field); // FOR Fluent Forms
@@ -71,7 +72,7 @@ function wpa_add_honeypot_field(){
 	}
 	// EOF FLUENT FORMS 
 
-	jQuery(wpa_hidden_field).insertAfter('input.wpa_initiator'); // FOR WPA INITIATOR (WP registration)
+	jQuery(wpa_hidden_field).insertAfter('input.wpa_initiator'); // FOR WPA INITIATOR (WP registration)	
 
 	// FOR LOGINS
 	jQuery('form.spectra-pro-login-form').append(wpa_hidden_field);	// SPECTRA LOGIN FORM

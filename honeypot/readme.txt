@@ -3,8 +3,8 @@ Contributors: dnesscarkey
 Donate link: https://www.patreon.com/wp_armour
 Tags: anti spam, spam protection, comment spam , contact form spam, akismet
 Requires at least: 3.0
-Tested up to: 6.5
-Stable tag: 2.2.02
+Tested up to: 6.6.2
+Stable tag: 2.2.03
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,7 @@ This plugins block spam submissions using honeypot anti spam technic. No Captcha
 * Ulimate Members (<a href="https://ultimatemember.com/">ultimatemember.com</a>)
 * Bricks Builder Form (<a href="https://bricksbuilder.io/">bricksbuilder.io</a>)
 * BricksForge Pro Form (<a href="https://bricksforge.io/">bricksforge.io</a>)
+* Beaver Builder Contact Form Module (<a href="https://www.wpbeaverbuilder.com/">Beaver Builder</a>)
 * Strong Testimonials (<a href="https://wordpress.org/plugins/strong-testimonials/">wordpress.org/plugins/strong-testimonials</a>)
 * Formcraft Form (<a href="https://formcraft-wp.com/">formcraft-wp.com</a>)
 * Forminator Form (<a href="https://wordpress.org/plugins/forminator/">wordpress.org/plugins/forminator</a>)
@@ -140,6 +141,11 @@ With WP Armour - Honeypot Anti Spam plugin it is No. But if you want you can use
 1. Screenshot #11. Anti Spam for Fluent Forms
 
 == Changelog ==
+
+= = 2.2.03 =
+
+* Gravity Form Error Fixed.
+* Learnpress error fixes. 
 
 = = 2.2.02 =
 

@@ -10,16 +10,10 @@ if (!function_exists('wpae_get_blocked_integrations') || !in_array('gravityforms
 			$form = $validation_result['form'];
 			do_action('wpa_handle_spammers','gravityforms', $_POST);
 			$validation_result['is_valid'] = false;
-			foreach( $form['fields'] as &$field ) {
-	 			if ( $field->id == '1' ) {
-	                $field->failed_validation = true;
-	                $field->validation_message = $GLOBALS['wpa_error_message'];
-	                break;
-	            }
-	        }
+			$form['fields'][0]->failed_validation = true;
+			$form['fields'][0]->validation_message = $GLOBALS['wpa_error_message'];
 			$validation_result['form'] = $form;
 		}
 		return $validation_result;
 	}
-
 endif;
