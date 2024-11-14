@@ -4,7 +4,7 @@ Donate link: https://www.patreon.com/wp_armour
 Tags: anti spam, spam protection, comment spam , contact form spam, akismet
 Requires at least: 3.0
 Tested up to: 6.6.2
-Stable tag: 2.2.03
+Stable tag: 2.2.05
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,15 @@ With WP Armour - Honeypot Anti Spam plugin it is No. But if you want you can use
 1. Screenshot #11. Anti Spam for Fluent Forms
 
 == Changelog ==
+
+= = 2.2.05 =
+
+* Fixed WooCommerce issue that came after 2.2.04 update. 
+
+= = 2.2.04 =
+
+* Code Optimization
+* Fix multiple span check widgets being shown for some forms.  
 
 = = 2.2.03 =
 

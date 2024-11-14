@@ -32,35 +32,46 @@ function wpa_act_as_spam(){
 }
 
 function wpa_add_honeypot_field(){
-	jQuery('.bbp-topic-form form').append(wpa_hidden_field); // BBPRESS TOPIC
-	jQuery('.bbp-reply-form form').append(wpa_hidden_field); // BBPRESS REPLY
 	
-	// FOR COMMENTS
-	var commentFormSelectors = [
-	    'form#commentform',            // WP COMMENT with ID
-	    'form.ast-commentform',        // Astra Comment Form with class
-	    'form#fl-comment-form',        // Beaver Builder Theme Form with ID
-	    'form.comment-form',           // WP COMMENT with class
-	    '.review-form form',           // LearnPress Review
-	    'form#edd-reviews-form'        // EDD REVIEWS with ID
-	];
-	jQuery(commentFormSelectors.join(', ')).append(wpa_hidden_field);
-	// EOF FOR COMMENTS
+	// Combined form selectors
+	var allFormSelectors = [
+	    // Main forms
+	    'form.wpcf7-form, .wpcf7 form',        // CONTACT FORM 7
+	    'form.wpforms-form',                   // WPForms
+	    '.gform_wrapper form',                 // Gravity Forms
+	    '.frm_forms form',                     // Formidable Forms
+	    '.caldera-grid form',                  // Caldera Forms
+	    '.wp-block-toolset-cred-form form',    // Toolset Forms
+	    'form.cred-user-form',                 // Toolset Forms
+	    'form.cred-form',                      // Toolset Forms
+	    'form.et_pb_contact_form',             // Divi Form
+	    'form.fb_form',                        // Divi Form Builder - Divi Engine
+	    'form.elementor-form',                 // Elementor
+	    'form.form-contribution',              // WooCommerce Reviews Pro
+	    'form.cart',                           // WooCommerce Cart
+	    'form#learn-press-checkout-form',      // LearnPress Checkout Form
 
-	jQuery('form.wpcf7-form, .wpcf7 form').append(wpa_hidden_field); // CONTACT FORM 7
-	jQuery('form.wpforms-form').append(wpa_hidden_field); // WPFFORMS
-	jQuery('.gform_wrapper form').append(wpa_hidden_field); // GRAVITY FORMS
-	jQuery('.frm_forms form').append(wpa_hidden_field); // Formidible forms
-	jQuery('.caldera-grid form').append(wpa_hidden_field); // Caldera forms	
-	jQuery('.wp-block-toolset-cred-form form').append(wpa_hidden_field); // Toolset Forms
-	jQuery('form.cred-user-form').append(wpa_hidden_field); // Toolset Forms
-	jQuery('form.cred-form').append(wpa_hidden_field); // Toolset Forms		
-	jQuery('form.et_pb_contact_form').append(wpa_hidden_field); // Divi Form	
-	jQuery('form.fb_form').append(wpa_hidden_field); // Divi Form builder - Divi Engine           
-	jQuery('form.elementor-form').append(wpa_hidden_field); // FOR Elementor
-	jQuery('form.form-contribution').append(wpa_hidden_field); //WooCommerce Reviews Pro
-	jQuery('form.cart').append(wpa_hidden_field);
-	jQuery('form#learn-press-checkout-form').append(wpa_hidden_field);// Learn Press Checkout Form
+	    // Login forms
+	    'form.spectra-pro-login-form',         // SPECTRA LOGIN FORM
+	    'form#loginform',                      // Default Login Form
+	    'form#edd_login_form',                 // EDD LOGIN FORM
+	    'form.uwp-login-form',                 // USER WP LOGIN FORM
+
+	    // Comment forms
+	    'form#commentform',                    // WP Comment with ID
+	    'form.ast-commentform',                // Astra Comment Form with class
+	    'form#fl-comment-form',                // Beaver Builder Theme Form with ID
+	    'form.comment-form',                   // WP Comment with class
+	    '.review-form form',                   // LearnPress Review
+	    'form#edd-reviews-form',               // EDD Reviews with ID
+
+	    // BBPress forms
+	    '.bbp-topic-form form',                // BBPress Topic Form
+	    '.bbp-reply-form form'                 // BBPress Reply Form
+	];
+
+	// Append hidden field to all forms in the combined selector list
+	jQuery(allFormSelectors.join(', ')).append(wpa_hidden_field);
 	
 	// FOR FLUENT FORMS
 	jQuery('form.frm-fluent-form').append(wpa_hidden_field); // FOR Fluent Forms
@@ -72,13 +83,14 @@ function wpa_add_honeypot_field(){
 	}
 	// EOF FLUENT FORMS 
 
-	jQuery(wpa_hidden_field).insertAfter('input.wpa_initiator'); // FOR WPA INITIATOR (WP registration)	
-
-	// FOR LOGINS
-	jQuery('form.spectra-pro-login-form').append(wpa_hidden_field);	// SPECTRA LOGIN FORM
-	jQuery('form#loginform').append(wpa_hidden_field);	// SPECTRA LOGIN FORM
-	jQuery('form#edd_login_form').append(wpa_hidden_field);	// EDD LOGIN FORM
-	jQuery('form.uwp-login-form').append(wpa_hidden_field);	// USER WP LOGIN FORM
+	jQuery('input.wpa_initiator').each(function() {
+	    var $form = jQuery(this).closest('form'); // Get the parent form of input.wpa_initiator
+	    
+	    // Check if wpa_hidden_field exists in the form, if not, insert it after input.wpa_initiator
+	    if ($form.find('.wpa_hidden_field').length === 0) {
+	        jQuery(wpa_hidden_field).insertAfter(this);
+	    }
+	});
 	
 }
 
